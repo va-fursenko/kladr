@@ -1,0 +1,109 @@
+/**
+ * Yippee-ki-yay, motherfucker!
+ * It's a common css
+ */
+
+
+pre.log-container{
+    margin:           0;
+    width:            100%;
+    height:           500px;
+    overflow-x:       hidden;
+    overflow-y:       scroll;
+    font-size:        8pt;
+    border:           1px dashed;
+    padding:          2px 0px 4px 6px;
+    background-color: #dddddd;
+}
+
+pre.notice-row{
+    font-family: monospace;
+    font-size: 7pt;
+    color: gray;
+    margin-top: 0;
+    width: 100%;
+}
+
+.log-caption{
+    float: left;
+    font-weight: bold;
+}
+
+a.log-caption{
+    float: right;
+    font-weight: bold;
+}
+
+.log-row{
+    vertical-align: top;
+}
+
+img.log-loader{
+    width: 30px;
+    margin-left: 4px;
+    display: none;
+}
+
+sup{
+    font-weight: bold;
+    font-size: 8pt;
+}
+
+.notice-row{
+    font-family: monospace;
+    color: gray;
+    font-size: 7pt;
+    margin-top: 50px;
+}
+
+div.notice-row{
+    float: right;
+    width: 330px;
+    display: none;
+}
+
+
+
+/**
+ * Таблица пользовательских данных по результату
+ */
+table{
+    font-size: 9pt;
+    font-family: "Courier New";
+}
+
+th{
+    text-align: center;
+}
+
+td.col-left{
+    text-align: right;
+    vertical-align: middle;
+    width: 400px;
+}
+
+td.res{
+    text-align: center;
+    vertical-align: middle;
+}
+
+tr.bg-yellow{
+    background-color: #FFFFCC;
+}
+tr.bg-yellow:hover{
+    background-color: #FFFF99;
+}
+
+
+tr.bg-blue{
+    background-color: #d0e3f7;
+    font-weight: bold;
+}
+tr.bg-blue:hover{
+    background-color: #a3c8f0;
+    font-weight: bold;
+}
+tr.b{
+    font-weight: bold;
+    background-color: #e1e1e1;
+}
