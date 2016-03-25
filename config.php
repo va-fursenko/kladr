@@ -16,6 +16,9 @@ define('HOST', 'http://' . $_SERVER['HTTP_HOST'] . '/');
  */
 class CONFIG
 {
+    # Файл с данными
+    const BASE_FILENAME = 'KLADR.csv';
+
 
     # Общие
     /** @const bool Флаг дебага */

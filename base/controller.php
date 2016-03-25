@@ -13,7 +13,7 @@ $act = $_GET['action'];
 
 
 /* Конфиг */
-require_once(__DIR__ . '/config.php');
+require_once('..' . DIRECTORY_SEPARATOR . 'config.php');
 
 /* Бэйс либс */
 require_once(CONFIG::ROOT . DIRECTORY_SEPARATOR . 'lib' . DIRECTORY_SEPARATOR . 'class.BaseException.php');
@@ -33,7 +33,7 @@ try {
         // Выполнение однога шага импорта
         case 'step':
 
-            $result = KLADRReader::openFile();
+            $result = KLADRReader::openFile(CONFIG::BASE_FILENAME);
 
             if ($result['success']) {
                 $result['nextStep'] = 'openSecond';

@@ -20,30 +20,19 @@
             <h4 class="log-caption">Импорт данных из КЛАДР</h4>
             <img class="log-caption log-loader" id="logLoader" src="img/loader.gif">
             <a id="beginBtn" class="log-caption btn btn-primary" href="javascript:void(0);">Получить данные</a>
-
-            <table id="userDataTable" class="table table-condensed">
-                <caption>Weekly incoming per channel ESCC: Russia</caption>
-                <thead>
-                    <th>&nbsp;</th>
-                    <th>SG/TL<br/>this week</th>
-                    <th>Applications<br/>this week</th>
-                    <th>SG/TL<br/>this week</th>
-                    <th>Applications<br/>this week</th>
-                </thead>
-                <tbody>
-                </tbody>
-            </table>
-
             <pre id="logPre" class='log-container'></pre>
         </div>
 
         <div class="row notice-row">
-            <span>
-                <sup class="text-danger">*</sup>Необходимо дать права записи на корень проекта.<br/>
-                &nbsp;Входные данные ожидаются там же, в виде DBF-файла,<br/>
-                &nbsp;как он предоставляется на официальном сайте;<br/>
-                &nbsp;Имя по умолчанию задаётся в классе KladrReader::FILENAME.
-            </span>
+            <sup class="text-danger">*</sup>
+            <ul>
+                <li>Необходимо дать права записи на корень проекта</li>
+                <li>Входные данные ожидаются там же, в виде CSV-файла,</li>
+                <li>созданного из оригинального DBF</li>
+                <li>Разделители ;</li>
+                <li>Строкикак экранируются "</li>
+                <li>Имя по умолчанию задаётся в конфиге</li>
+            </ul>
         </div>
 
     </div>
