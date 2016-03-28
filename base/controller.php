@@ -33,12 +33,11 @@ try {
         // Выполнение однога шага импорта
         case 'step':
 
-            $result = KLADRReader::openFile(CONFIG::BASE_FILENAME);
-
-            if ($result['success']) {
-                $result['nextStep'] = 'openSecond';
-                $result['nextMessage'] = "# Импорт узкой матрицы";
-            }
+            $result = KLADRReader::readBlock(
+                CONFIG::BASE_FILENAME,
+                isset($_GET['file_pos']) ? $_GET['file_pos'] : 0,
+                isset($_GET['row_count']) ? $_GET['row_count'] : 0
+            );
             break;
 
 

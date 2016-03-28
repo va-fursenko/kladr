@@ -41,27 +41,27 @@ function showUserData(data) {
 /**
  * Выполнение одного этапа задачи с логгированием результатов
  * @param act Действие для передачи в контроллер
+ * @param filePos Смещение в файле, с которого продолжается чтение
+ * @param rowCount Счётчик считанных строк
  */
-function nextStep(act) {
+function nextStep(act, filePos, rowCount) {
     $.ajax({
-        type: 'GET',
-        url: '/base/controller.php?action=' + act,
-        dataType: 'json',
-        timeout: 240000,
+        'type'      : 'GET',
+        'url'       : '/base/controller.php?action=' + act + '&file_pos=' + filePos + '&row_count=' + rowCount,
+        'dataType'  : 'json',
+        'timeout'   : 240000,
         success: function (response) {
             if (response.success) {
-                log(response.message == ''
-                    ? "Завершено"
-                    : "Завершено. " + response.message
-                );
+                // Выводим счётчик
+                if (typeof response.row_count !== 'undefined') {
+                    log("Рядов считано: " + response.row_count);
+                }
 
                 // Если есть следующий этап, выполняем его
-                if (typeof response.nextStep !== 'undefined') {
-                    log('');
-                    log(response.nextMessage);
-                    nextStep('step', response.nextStep);
+                if (typeof response.next_step !== 'undefined' && response.next_step == 'step') {
+                    nextStep('step', response.file_pos, response.row_count);
 
-                    // Прячем лоадер, показываем кнопку перезапуска и выводим удобный результат
+                // Прячем лоадер, показываем кнопку перезапуска и выводим удобный результат
                 } else {
                     onFinish();
                     if (typeof response.userData !== 'undefined') {
@@ -99,6 +99,6 @@ $(window).load(function () {
         log("# Импорт данных КЛАДР\n");
 
         // Выполняем первый шаг
-        nextStep('step', 0);
+        nextStep('step', 0, 0);
     })
 });

@@ -21,15 +21,21 @@
  * @param Exception $e
  * @return void
  */
-function customExceptionHandler(Exception $e)
+function customExceptionHandler($e)
 {
     // Если исключение из нашей иерархии, воспользуемся его собственным методом
     if ($e instanceof BaseException) {
         $mArr = $e->toArray();
 
-        // Иначе выводим всю стандартную информацию
-    } else {
+    // Иначе выводим всю стандартную информацию
+    } elseif ($e instanceof Exception) {
         $mArr = Log::dumpException($e);
+
+    // Или показываем неведомую ебанину
+    } else {
+        $mArr = [
+            Log::A_TEXT_MESSAGE => print_r($e, true)
+        ];
     }
     // Без вьюх пока только так
     echo "Exception has been raised \"{$mArr[Log::A_PHP_ERROR_MESSAGE]}\"<br/><br/>";
